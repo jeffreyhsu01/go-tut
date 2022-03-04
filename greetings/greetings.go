@@ -19,6 +19,23 @@ func Hello(name string) (string, error) { // Function name, Parameter type, Retu
 	return message, nil
 }
 
+// Hellos returns a map that associatates each of the named people
+// with a greeting message.
+func Hellos(names []string) (map[string]string, error) {
+	//  A map to associate names with  messages
+	messages := make(map[string]string)
+	// Loop through the received slice of names, calling
+	// the Hello function to get a message for each name.
+	for _, name := range names {
+		message, err := Hello(name)
+		if err != nil {
+			return nil, err
+		}
+		messages[name] = message
+	}
+	return messages, nil
+}
+
 // init seeds the rand package with the current time
 func init() {
 	rand.Seed(time.Now().UnixNano())
