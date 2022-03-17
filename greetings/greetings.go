@@ -16,6 +16,8 @@ func Hello(name string) (string, error) { // Function name, Parameter type, Retu
 	// Return a greeting that embeds the name in a message.
 	// Call the randomFormat function to get a format for the message
 	message := fmt.Sprintf(randomFormat(), name) // Shortcut for declaring and initializing a variable
+	// Error below
+	//message := fmt.Sprint(randomFormat())
 	return message, nil
 }
 
